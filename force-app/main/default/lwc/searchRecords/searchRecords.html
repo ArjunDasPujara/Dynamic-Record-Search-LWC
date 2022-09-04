@@ -1,0 +1,46 @@
+<template>
+	<template if:true={isContentReady}>
+		<div class="search-box slds-p-bottom_x-small">
+			<div class="slds-grid slds-gutters slds-m-vertical_x-small slds-p-around_x-small">
+				<div class="slds-col">
+					<lightning-combobox
+						value={objectApiName}
+						placeholder="Select Object"
+						options={objectOptions}
+						onchange={handleObjectChange}
+						variant="label-hidden"
+					></lightning-combobox>
+				</div>
+				<div class="slds-col">
+					<lightning-combobox
+						value={fieldApiName}
+						placeholder="Select Field"
+						options={fieldOptions}
+						onchange={handleFieldChange}
+						variant="label-hidden"
+					></lightning-combobox>
+				</div>
+			</div>
+			<div class="slds-p-horizontal_x-small">
+				<c-search-bar onsearch={handleSearch}></c-search-bar>
+			</div>
+		</div>
+		<div class="record-box slds-m-top_x-small">
+			<lightning-datatable
+				key-field="Id"
+				data={data}
+				columns={dataTableFields}
+				hide-checkbox-column="true"
+				min-column-width="200"
+			></lightning-datatable>
+		</div>
+	</template>
+	<template if:true={isError}>
+		<div class="error-box">
+			<c-illustration
+				error-text='SOMTHING_WENT_WRONG_ERROR'>
+			</c-illustration>
+		</div>
+	</template>
+	<c-spinner is-loding={isLoding}></c-spinner>
+</template>

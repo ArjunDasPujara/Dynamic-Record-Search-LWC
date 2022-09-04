@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>User__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>User which will have the access on and Fields</description>
+    <externalId>false</externalId>
+    <inlineHelpText>User which will have the access on and Fields</inlineHelpText>
+    <label>User</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Dynamic_Record_Search_Config</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

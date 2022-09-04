@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Field_List__c</fullName>
+    <description>Comma separated filed list of object mentioned in Object API Name. These filed will be used for show data and search</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Comma separated filed list of object mentioned in Object API Name. These filed will be used for show data and search</inlineHelpText>
+    <label>Field List</label>
+    <length>131000</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>20</visibleLines>
+</CustomField>

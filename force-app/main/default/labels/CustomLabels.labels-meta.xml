@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>FieldApiNameList_can_not_be_null_or_empty_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FieldApiNameList can not be null or empty</shortDescription>
+        <value>FieldApiNameList can not be null or empty</value>
+    </labels>
+    <labels>
+        <fullName>SObject_Name_can_not_be_null_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SObject Name can not be null</shortDescription>
+        <value>SObject Name can not be null</value>
+    </labels>
+    <labels>
+        <fullName>Query_Limit_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Query limit error</shortDescription>
+        <value>Qurey limit must be between 1 to 50000</value>
+    </labels>
+    <labels>
+        <fullName>SearchField_can_not_be_null_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>searchField can not be null</shortDescription>
+        <value>searchField can not be null</value>
+    </labels>
+    <labels>
+        <fullName>Search_field_not_belongs_to_object_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search field not belongs to object</shortDescription>
+        <value>Search field not belongs to object</value>
+    </labels>
+</CustomLabels>
