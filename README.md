@@ -11,3 +11,9 @@ This repository contains Salesforce SFDX based project to search records of any 
 ![](Documents/DynamicRecordSearch3.jpg)
 
 ![](Documents/DynamicRecordSearch4.jpg)
+
+
+# Built With
+* Lightning Web Components - Salesforce based web framework
+* Apex
+* Custom object
