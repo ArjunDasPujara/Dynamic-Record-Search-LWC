@@ -35,7 +35,7 @@ public with sharing class SearchRecordController {
 			List<SearchRecordController.Detail> fieldDetailList = new List<SearchRecordController.Detail>();
 			List<Dynamic_Record_Search_Config__c> dynamicRecordSearchConfigList = DynamicRecordSearchConfigSelector.getRecordsByUserIdAndObjectapiName(UserInfo.getUserId(), sobjectApiName);
 			apiNameList = dynamicRecordSearchConfigList[0].Field_List__c.split(',');
-			Map<String, String> fieldLabelByApiNameMap = FieldService.getFieldLableByApiNameBySobjectNameAndFieldAPIList(sobjectApiName, apiNameList);
+			Map<String, String> fieldLabelByApiNameMap = FieldService.getFieldLableByApiNamWithStripedApisWhichNotBlongsToObjectAndNotAccessibleToUserByObjectNameAndFieldAPINameList(sobjectApiName, apiNameList);
 			fieldLabelByApiNameMap.remove('Id');
 			for(String apiName : fieldLabelByApiNameMap.keyset()) {
 				fieldDetailList.add(

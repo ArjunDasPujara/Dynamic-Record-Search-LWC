@@ -36,7 +36,7 @@ public with sharing class SObjectSelector {
 			String qureyStart = 'SELECT Id, ';
 			String whereClause;
 
-			Map<String, String> fieldLabelByApiNameMap = FieldService.getFieldLableByApiNameBySobjectNameAndFieldAPIList(sobjectName, fieldList);
+			Map<String, String> fieldLabelByApiNameMap = FieldService.getFieldLableByApiNamWithStripedApisWhichNotBlongsToObjectAndNotAccessibleToUserByObjectNameAndFieldAPINameList(sobjectName, fieldList);
 			if(String.isNotBlank(searchField) & fieldLabelByApiNameMap.get(searchField) == null) {
 				throw new CustomException(Label.Search_field_not_belongs_to_object_Error);
 			} else {

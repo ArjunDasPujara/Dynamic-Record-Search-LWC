@@ -1,15 +1,6 @@
 public with sharing class FieldService {
 
-	public static Map<String, String> getFieldLableByApiNameBySobjectNameAndFieldAPIList(String sObjectName, List<String> fieldApiNameList) {
-		return getFieldLableByApiNamWithStripedApisWhichNotBlongsToObjectByObjectNameAndFieldAPINameList(sObjectName, fieldApiNameList);
-	}
-
-	public static List<String> stripApisWhichNotBlongsToObjectByObjectNameAndFieldAPINameList(String sObjectName, List<String> fieldApiNameList) {
-		Set<String> apiNameSet = getFieldLableByApiNamWithStripedApisWhichNotBlongsToObjectByObjectNameAndFieldAPINameList(sObjectName, fieldApiNameList).keySet();
-		return new List<String>(apiNameSet);
-	}
-
-	private static Map<String, String> getFieldLableByApiNamWithStripedApisWhichNotBlongsToObjectByObjectNameAndFieldAPINameList(String sObjectName, List<String> fieldApiNameList) {
+	public static Map<String, String> getFieldLableByApiNamWithStripedApisWhichNotBlongsToObjectAndNotAccessibleToUserByObjectNameAndFieldAPINameList(String sObjectName, List<String> fieldApiNameList) {
 		Map<String, String> fieldLabelByApiNameMap = new Map<String, String>();
 		if(String.isBlank(sObjectName)) {
 			throw new IllegalArgumentException(Label.SObject_Name_can_not_be_null_Error);
@@ -31,8 +22,11 @@ public with sharing class FieldService {
 			for(String fieldApiName : stripedFieldApiNameList) {
 				String sObjectFieldAPIName = apiNameByApiNameInCapLetter.get(fieldApiName.toUpperCase());
 				if(sObjectFieldAPIName != null) {
-					Schema.SObjectField sObjectField = sObjectFieldByFieldApiNameMap.get(sObjectFieldAPIName);
-					fieldLabelByApiNameMap.put(sObjectFieldAPIName, sObjectField.getDescribe().getLabel());
+					Schema.SObjectField SObjectField = sObjectFieldByFieldApiNameMap.get(sObjectFieldAPIName);
+					Schema.DescribeFieldResult describeFieldResult = SObjectField.getDescribe();
+					if(describeFieldResult.isAccessible()) {
+						fieldLabelByApiNameMap.put(sObjectFieldAPIName, describeFieldResult.getLabel());
+					}
 				}
 			}
 		}

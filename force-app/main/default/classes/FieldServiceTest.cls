@@ -2,7 +2,7 @@
 private class FieldServiceTest {
 
 	@IsTest
-	static void testGetFieldLableByApiNameBySobjectNameAndFieldAPIList_sObjectNameAndFieldAPIList_fieldLableByApiNameMap() {
+	static void testGetFieldLableByApiNamWithStripedApisWhichNotBlongsToObjectAndNotAccessibleToUserByObjectNameAndFieldAPINameList_sObjectNameAndFieldAPIList_fieldLableByApiNameMap() {
 		//Given
 		final String sObjectVar = 'Account';
 		final List<String> fieldAPINameList = new List<String> {
@@ -10,7 +10,7 @@ private class FieldServiceTest {
 		};
 
 		//When
-		Map<String, String> fieldLableByApiName = FieldService.getFieldLableByApiNameBySobjectNameAndFieldAPIList(sObjectVar, fieldAPINameList);
+		Map<String, String> fieldLableByApiName = FieldService.getFieldLableByApiNamWithStripedApisWhichNotBlongsToObjectAndNotAccessibleToUserByObjectNameAndFieldAPINameList(sObjectVar, fieldAPINameList);
 
 		//Then
 		final String accountNameFieldLabel = 'Account Name';
@@ -18,24 +18,7 @@ private class FieldServiceTest {
 	}
 
 	@IsTest
-	static void testStripApisWhichNotBlongsToObjectByObjectNameAndFieldAPINameList_sObjectNameAndFieldAPIList_stripedApiNameList() {
-		//Given
-		final String sObjectVar = 'Account';
-		final List<String> fieldAPINameList = new List<String> {
-			'Name',
-			'Test'
-		};
-
-		//When
-		List<String> fieldApiNameResultList = FieldService.stripApisWhichNotBlongsToObjectByObjectNameAndFieldAPINameList(sObjectVar, fieldAPINameList);
-
-		//Then
-		System.assertEquals(1, fieldApiNameResultList.size());
-		System.assertEquals('Name', fieldApiNameResultList[0]);
-	}
-
-	@IsTest
-	static void testGetFieldLableByApiNameBySobjectNameAndFieldAPIList_sObjectNameAsNullAndFieldAPIList_throwError() {
+	static void testGetFieldLableByApiNamWithStripedApisWhichNotBlongsToObjectAndNotAccessibleToUserByObjectNameAndFieldAPINameList_sObjectNameAsNullAndFieldAPIList_throwError() {
 		//Given
 		final String sObjectVar = null;
 		final List<String> fieldAPINameList = new List<String> {
@@ -44,7 +27,7 @@ private class FieldServiceTest {
 
 		//When - Then
 		try {
-			Map<String, String> fieldLableByApiName = FieldService.getFieldLableByApiNameBySobjectNameAndFieldAPIList(sObjectVar, fieldAPINameList);
+			Map<String, String> fieldLableByApiName = FieldService.getFieldLableByApiNamWithStripedApisWhichNotBlongsToObjectAndNotAccessibleToUserByObjectNameAndFieldAPINameList(sObjectVar, fieldAPINameList);
 			System.assert(false, 'Exception Expected');
 		}catch(Exception exp) {
 			System.assertEquals(Label.SObject_Name_can_not_be_null_Error, exp.getMessage());  
@@ -52,14 +35,14 @@ private class FieldServiceTest {
 	}
 
 	@IsTest
-	static void testGetFieldLableByApiNameBySobjectNameAndFieldAPIList_sObjectNameAndFieldAPIListAsNull_throwError() {
+	static void testGetFieldLableByApiNamWithStripedApisWhichNotBlongsToObjectAndNotAccessibleToUserByObjectNameAndFieldAPINameList_sObjectNameAndFieldAPIListAsNull_throwError() {
 		//Given
 		final String sObjectVar = 'Account';
 		final List<String> fieldAPINameList = null;
 
 		//When - Then
 		try {
-			Map<String, String> fieldLableByApiName = FieldService.getFieldLableByApiNameBySobjectNameAndFieldAPIList(sObjectVar, fieldAPINameList);
+			Map<String, String> fieldLableByApiName = FieldService.getFieldLableByApiNamWithStripedApisWhichNotBlongsToObjectAndNotAccessibleToUserByObjectNameAndFieldAPINameList(sObjectVar, fieldAPINameList);
 			System.assert(false, 'Exception Expected');
 		}catch(Exception exp) {
 			System.assertEquals(Label.FieldApiNameList_can_not_be_null_or_empty_Error, exp.getMessage());
