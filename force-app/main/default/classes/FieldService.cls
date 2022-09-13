@@ -24,7 +24,7 @@ public with sharing class FieldService {
 				if(sObjectFieldAPIName != null) {
 					Schema.SObjectField SObjectField = sObjectFieldByFieldApiNameMap.get(sObjectFieldAPIName);
 					Schema.DescribeFieldResult describeFieldResult = SObjectField.getDescribe();
-					if(describeFieldResult.isAccessible()) {
+					if(describeFieldResult.isAccessible() && describeFieldResult.isFilterable()) {
 						fieldLabelByApiNameMap.put(sObjectFieldAPIName, describeFieldResult.getLabel());
 					}
 				}
