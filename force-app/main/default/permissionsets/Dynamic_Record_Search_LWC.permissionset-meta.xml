@@ -29,18 +29,17 @@
         <enabled>true</enabled>
     </classAccesses>
     <description>Dynamic Record Search LWC</description>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Dynamic_Record_Search_Config__c.Field_List__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Dynamic_Record_Search_Config__c.User__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
     <label>Dynamic Record Search LWC</label>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Dynamic_Record_Search_Config__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
     <tabSettings>
         <tab>Search_Records</tab>
         <visibility>Visible</visibility>
