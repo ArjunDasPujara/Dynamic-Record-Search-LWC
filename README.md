@@ -1,6 +1,9 @@
 # Dynamic Record Search LWC
 
-This repository contains Salesforce SFDX based project to search records of any object by simple configuration. Lightning Web Components is used to achieve visualization of data and images.
+Salesforce SFDX-based project to search records of any object by simple configuration. Lightning Web Components are used to achieve visualization of data and images.  
+This is a single-point solution to search records on standard and custom objects.  
+For different users, different objects and fields can be configured for search.  
+Object level, field level, and record level security will always be enforced.  
 
 # Glance
 
